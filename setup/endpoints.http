@@ -26,7 +26,7 @@ Content-Type: application/json
 
 ### Patch invalid
 
-PATCH http://localhost:8000/careers/3/
+PATCH http://localhost:8000/careers/1/
 Content-Type: application/json
 
 {
@@ -37,5 +37,5 @@ Content-Type: application/json
 
 ###
 
-DELETE http://localhost:8000/careers/4/
+DELETE http://localhost:8000/careers/1/
 Content-Type: application/json
