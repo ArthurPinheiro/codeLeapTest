@@ -12,12 +12,14 @@ class TestCareerAPI:
         self.career = Career.objects.create(
             username="TestUser",
             title="Dev",
-            content="Python"
+            content="Python",
+            created_datetime="2025-06-05"
         )
 
     def test_create_career(self):
         payload = {
             "username": "Arthur",
+            "created_datetime": "2025-05-06",
             "title": "Backend Developer",
             "content": "Python"
         }
@@ -46,6 +48,13 @@ class TestCareerAPI:
         }, format='json')
         assert response.status_code == 400
         assert "username" in response.data
+
+    def test_patch_career_invalid_field(self):
+        response = self.client.patch(f"{self.url}{self.career.id}/", {
+            "created_datetime": "2025-06-09"
+        }, format='json')
+        assert response.status_code == 400
+        assert "created_datetime" in response.data
 
     def test_delete_career(self):
         response = self.client.delete(f"{self.url}{self.career.id}/")

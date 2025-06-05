@@ -4,6 +4,7 @@ Content-Type: application/json
 {
   "username": "Arthur",
   "title": "Backend Developer",
+  "created_datetime": "2025-06-07",
   "content": "Python"
 }
 
@@ -13,7 +14,17 @@ GET http://localhost:8000/careers/
 Content-Type: application/json
 
 
-###
+### Patch valid 
+
+PATCH http://localhost:8000/careers/3/
+Content-Type: application/json
+
+{
+  "title": "Software enginner",
+  "content": "Python"
+}
+
+### Patch invalid
 
 PATCH http://localhost:8000/careers/3/
 Content-Type: application/json
@@ -26,5 +37,5 @@ Content-Type: application/json
 
 ###
 
-DELETE http://localhost:8000/careers/1/
+DELETE http://localhost:8000/careers/4/
 Content-Type: application/json
